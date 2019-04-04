@@ -31,8 +31,13 @@
             <a href="<c:url value="/app/tasks/task/new/"/>">Aufgabe anlegen</a>
         </div>
 
+        
         <div class="menuitem">
             <a href="<c:url value="/app/tasks/categories/"/>">Kategorien bearbeiten</a>
+        </div>
+        
+        <div class="menuitem">
+            <a href="<c:url value="/app/maintain/"/>">Benutzer anpassen</a>
         </div>
     </jsp:attribute>
 

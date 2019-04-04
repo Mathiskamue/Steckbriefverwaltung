@@ -94,9 +94,18 @@
                 <div class="side-by-side">
                     <input type="text" name="task_short_text" value="${task_form.values["task_short_text"][0]}">
                 </div>
+                
+                <label for="task_short_text">
+                    Kopfgeld:
+                    <span class="required">*</span>
+                </label>
+                <div class="side-by-side">
+                    <%--Variable ändern --%>
+                    <input type="text" name="task_short_text" value="${task_form.values["task_short_text"][0]}">
+                </div>
 
                 <label for="task_long_text">
-                    Beschreibung:
+                   Personenbeschreibung:
                 </label>
                 <div class="side-by-side">
                     <textarea name="task_long_text"><c:out value="${task_form.values['task_long_text'][0]}"/></textarea>

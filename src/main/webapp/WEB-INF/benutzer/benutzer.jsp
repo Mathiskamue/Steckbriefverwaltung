@@ -38,60 +38,61 @@
                     <input type="hidden" name="csrf_token" value="${csrf_token}">
 
                     <%-- Eingabefelder --%>
-                    <label for="signup_username">
+                    <label for="maintain_username">
                         Benutzername:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_username" value="${signup_form.values["signup_username"][0]}">
+                        <input type="text" name="maintain_username" value="${username}">
                     </div>
 
-                    <label for="signup_password1">
-                        Passwort:
+                    <label for="maintain_oldpassword">
+                        Altes Passwort:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="password" name="signup_password1" value="${signup_form.values["signup_password1"][0]}">
+                        <input type="password" name="maintain_password1" value="${oldPasswords}">
                     </div>
-
-                    <label for="signup_password2">
-                        Passwort (wdh.):
+                    <label for="maintain_newPassword">
+                        Neues Passwort:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="password" name="signup_password2" value="${signup_form.values["signup_password2"][0]}">
+                        <input type="password" name="maintain_newPassword" value="${newPassword}">
                     </div>
-                    <label for="signup_vorname">
+
+
+                    <label for="maintain_vorname">
                         Vorname:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_vorname" value="${signup_vorname}">
+                        <input type="text" name="maintain_vorname" value="${vorname}">
                     </div>
-                    <label for="signup_nachname">
+                    <label for="maintain_nachname">
                         Nachname:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_nachname" value="${signup_nachname}">
+                        <input type="text" name="maintain_nachname" value="${nachname}">
                     </div>
 
                     <%-- Button zum Abschicken --%>
                     <div class="side-by-side">
                         <button class="icon-pencil" type="submit">
-                            Registrieren
+                           Bestätigen
                         </button>
                     </div>
                 </div>
 
-                <%-- Fehlermeldungen --%>
+                <%-- Fehlermeldungen 
                 <c:if test="${!empty signup_form.errors}">
                     <ul class="errors">
                         <c:forEach items="${signup_form.errors}" var="error">
                             <li>${error}</li>
                             </c:forEach>
                     </ul>
-                </c:if>
+                </c:if>--%>
             </form>
         </div>
     </jsp:attribute>
