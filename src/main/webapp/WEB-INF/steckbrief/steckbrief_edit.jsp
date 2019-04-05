@@ -11,6 +11,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <template:base>
+    
     <jsp:attribute name="title">
         <c:choose>
             <c:when test="${edit}">
