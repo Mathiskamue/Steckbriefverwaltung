@@ -9,6 +9,7 @@
  */
 package dhbwka.wwi.vertsys.javaee.jtodo.tasks.jpa;
 
+import dhbw.wwi.deadoralive.jpa.Steckbrief;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,9 @@ public class Category implements Serializable {
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     List<Task> tasks = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    List<Steckbrief> steckbrief = new ArrayList<>();
 
     //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
     public Category() {

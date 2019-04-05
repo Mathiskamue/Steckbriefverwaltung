@@ -9,6 +9,7 @@
  */
 package dhbwka.wwi.vertsys.javaee.jtodo.common.jpa;
 
+import dhbw.wwi.deadoralive.jpa.Steckbrief;
 import dhbwka.wwi.vertsys.javaee.jtodo.tasks.jpa.Task;
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
@@ -72,6 +73,9 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     List<Task> tasks = new ArrayList<>();
+    
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    List<Steckbrief> steckbrief = new ArrayList<>();
 
     //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
     public User() {
