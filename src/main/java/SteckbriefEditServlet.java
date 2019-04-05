@@ -148,7 +148,7 @@ public class SteckbriefEditServlet extends HttpServlet {
             errors.add("Der ausgewählte Status ist nicht vorhanden.");
         }
 
-        steckbrief.setPersonenBeschreibung(steckbriefName);
+        steckbrief.setName(steckbriefName);
         steckbrief.setPersonenBeschreibung(steckbriefPersonenBeschreibung);
 
         this.validationBean.validate(steckbrief, errors);
@@ -162,7 +162,9 @@ public class SteckbriefEditServlet extends HttpServlet {
         if (errors.isEmpty()) {
             // Keine Fehler: Startseite aufrufen
             response.sendRedirect(WebUtils.appUrl(request, "/app/steckbrief/list/"));
+            System.out.println("FehlerList empty");
         } else {
+            System.out.println("FehlerList nicht empty");
             // Fehler: Formuler erneut anzeigen
             FormValues formValues = new FormValues();
             formValues.setValues(request.getParameterMap());

@@ -18,3 +18,6 @@ td, th {
     text-align: left;
     vertical-align: baseline;
 }
+.tabelle{
+    background-color: rgba(256,256,256,0.7);
+}

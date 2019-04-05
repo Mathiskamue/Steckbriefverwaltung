@@ -11,3 +11,7 @@ Creative Commons Namensnennung 4.0 International Lizenz.
 .margin {
     margin-bottom: 1em;
 }
+.column{
+    background-color: rgba(256,256,256,0.7);
+    padding: 1%;
+}

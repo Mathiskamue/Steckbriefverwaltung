@@ -47,7 +47,7 @@ public class Steckbrief implements Serializable {
     private Category category;
     
     @Column(length = 50)
-    @NotNull(message = "Der Name darf nicht leer sein.")
+    @NotNull(message = "Der Name darf nicht leer sein!!!!")
     @Size(min = 1, max = 50, message = "Der Name muss zwischen ein und 50 Zeichen lang sein.")
     private String name;
     private int kopfgeld;

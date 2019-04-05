@@ -76,7 +76,7 @@
             <c:otherwise>
                 <jsp:useBean id="utils" class="dhbwka.wwi.vertsys.javaee.jtodo.common.web.WebUtils"/>
                 
-                <table>
+                <table class="tabelle">
                     <thead>
                         <tr>
                             <th>Bezeichnung</th>
@@ -103,7 +103,7 @@
                                 <c:out value="${steckbrief.status.label}"/>
                             </td>
                             <td>
-                                <c:out value="${utils.formatDate(task.dueDate)}"/>
+                                <c:out value="${utils.formatDate(steckbrief.dueDate)}"/>
                             </td>
                         </tr>
                     </c:forEach>

@@ -38,7 +38,7 @@ public class Category implements Serializable {
     private long id;
 
     @Column(length = 30)
-    @NotNull(message = "Der Name darf nicht leer sein.")
+    @NotNull(message = "Der Name darf nicht leer sein????")
     @Size(min = 3, max = 30, message = "Der Name muss zwischen drei und 30 Zeichen lang sein.")
     private String name;
 
