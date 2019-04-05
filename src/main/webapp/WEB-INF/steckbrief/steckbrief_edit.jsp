@@ -32,7 +32,7 @@
         </div>
         
         <div class="menuitem">
-            <a href="<c:url value="/app/tasks/list/"/>">Liste</a>
+            <a href="<c:url value="/app/steckbrief/list/"/>">Liste</a>
         </div>
     </jsp:attribute>
 
@@ -43,69 +43,68 @@
                 <input type="hidden" name="csrf_token" value="${csrf_token}">
 
                 <%-- Eingabefelder --%>
-                <label for="task_owner">Eigentümer:</label>
+                <label for="steckbrief_owner">Eigentümer:</label>
                 <div class="side-by-side">
-                    <input type="text" name="task_owner" value="${task_form.values["task_owner"][0]}" readonly="readonly">
+                    <input type="text" name="steckbrief_owner" value="${task_form.values["steckbrief_owner"][0]}" readonly="readonly">
                 </div>
 
-                <label for="task_category">Kategorie:</label>
+                <label for="steckbrief_category">Kategorie:</label>
                 <div class="side-by-side">
-                    <select name="task_category">
+                    <select name="steckbrief_category">
                         <option value="">Keine Kategorie</option>
 
                         <c:forEach items="${categories}" var="category">
-                            <option value="${category.id}" ${task_form.values["task_category"][0] == category.id.toString() ? 'selected' : ''}>
+                            <option value="${category.id}" ${task_form.values["steckbrief_category"][0] == category.id.toString() ? 'selected' : ''}>
                                 <c:out value="${category.name}" />
                             </option>
                         </c:forEach>
                     </select>
                 </div>
 
-                <label for="task_due_date">
+                <label for="steckbrief_due_date">
                     Fällig am:
                     <span class="required">*</span>
                 </label>
                 <div class="side-by-side">
-                    <input type="text" name="task_due_date" value="${task_form.values["task_due_date"][0]}">
-                    <input type="text" name="task_due_time" value="${task_form.values["task_due_time"][0]}">
+                    <input type="text" name="steckbrief_due_date" value="${task_form.values["task_due_date"][0]}">
                 </div>
 
-                <label for="task_status">
+                <label for="steckbrief_status">
                     Status:
                     <span class="required">*</span>
                 </label>
                 <div class="side-by-side margin">
-                    <select name="task_status">
+                    <select name="steckbrief_status">
                         <c:forEach items="${statuses}" var="status">
-                            <option value="${status}" ${task_form.values["task_status"][0] == status ? 'selected' : ''}>
+                            <option value="${status}" ${steckbrief_form.values["steckbrief_status"][0] == status ? 'selected' : ''}>
                                 <c:out value="${status.label}"/>
                             </option>
                         </c:forEach>
                     </select>
                 </div>
 
-                <label for="task_short_text">
+                <label for="steckbrief_name">
                     Bezeichnung:
                     <span class="required">*</span>
                 </label>
                 <div class="side-by-side">
-                    <input type="text" name="task_short_text" value="${task_form.values["task_short_text"][0]}">
+                    <input type="text" name="steckbrief_name" value="${steckbrief_form.values["steckbrief_name"][0]}">
                 </div>
                 
-                <label for="task_short_text">
+                <label for="steckbrief_name">
                     Kopfgeld:
                     <span class="required">*</span>
                 </label>
                 <div class="side-by-side">
                     <%--Variable ändern --%>
-                    <input type="text" name="task_short_text" value="${task_form.values["task_short_text"][0]}">
+                    <input type="text" name="steckbrief_name" value="${steckbrief_form.values["steckbrief_name"][0]}">
                 </div>
 
-                <label for="task_long_text">
+                <label for="steckbrief_personen_beschreibung">
                    Personenbeschreibung:
                 </label>
                 <div class="side-by-side">
-                    <textarea name="task_long_text"><c:out value="${task_form.values['task_long_text'][0]}"/></textarea>
+                    <textarea name="steckbrief_personen_beschreibung"><c:out value="${steckbrief_form.values['steckbrief_personen_beschreibung'][0]}"/></textarea>
                 </div>
 
                 <%-- Button zum Abschicken --%>
@@ -123,9 +122,9 @@
             </div>
 
             <%-- Fehlermeldungen --%>
-            <c:if test="${!empty task_form.errors}">
+            <c:if test="${!empty steckbrief_form.errors}">
                 <ul class="errors">
-                    <c:forEach items="${task_form.errors}" var="error">
+                    <c:forEach items="${steckbrief_form.errors}" var="error">
                         <li>${error}</li>
                     </c:forEach>
                 </ul>

@@ -9,6 +9,8 @@
  */
 package dhbwka.wwi.vertsys.javaee.jtodo.tasks.web;
 
+import dhbw.wwi.deadoralive.ejb.SteckbriefBean;
+import dhbw.wwi.deadoralive.jpa.Steckbrief;
 import dhbwka.wwi.vertsys.javaee.jtodo.tasks.ejb.CategoryBean;
 import dhbwka.wwi.vertsys.javaee.jtodo.tasks.ejb.TaskBean;
 import dhbwka.wwi.vertsys.javaee.jtodo.tasks.jpa.Category;
@@ -26,14 +28,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet für die tabellarische Auflisten der Aufgaben.
  */
-@WebServlet(urlPatterns = {"/app/tasks/list/"})
+@WebServlet(urlPatterns = {"/app/steckbrief/list/"})
 public class SteckbriefEditServlet extends HttpServlet {
 
     @EJB
     private CategoryBean categoryBean;
     
     @EJB
-    private TaskBean taskBean;
+    private SteckbriefBean steckbriefBean;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -69,10 +71,10 @@ public class SteckbriefEditServlet extends HttpServlet {
 
         }
 
-        List<Task> tasks = this.taskBean.search(searchText, category, status);
-        request.setAttribute("tasks", tasks);
+        List<Steckbrief> steckbrief = this.steckbriefBean.search(searchText, category, status);
+        request.setAttribute("steckbrief", steckbrief);
 
         // Anfrage an die JSP weiterleiten
-        request.getRequestDispatcher("/WEB-INF/tasks/task_list.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/steckbrief/steckbrief_list.jsp").forward(request, response);
     }
 }

@@ -61,6 +61,7 @@ public class Steckbrief implements Serializable {
     @NotNull
     private TaskStatus status = TaskStatus.OPEN;
     
+    
     public Steckbrief(){
         
     }
