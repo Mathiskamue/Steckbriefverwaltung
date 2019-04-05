@@ -264,7 +264,7 @@ public class SteckbriefEditServlet extends HttpServlet {
             steckbrief.getName()
         });
 
-        values.put("task_personen_beschreibung", new String[]{
+        values.put("steckbrief_personen_beschreibung", new String[]{
             steckbrief.getPersonenBeschreibung()
         });
 
