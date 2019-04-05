@@ -42,12 +42,12 @@ public class WebUtils {
     public static String appUrl(HttpServletRequest request, String url) {
         return request.getContextPath() + url;
     }
-    
+
     /**
-     * Anhängen eines Query-Parameters an eine vorhandene URL. Enthält die
-     * URL noch keine Parameter, wird der Parameter als ?name=wert angehängt,
-     * sonst als &name=wert.
-     * 
+     * Anhängen eines Query-Parameters an eine vorhandene URL. Enthält die URL
+     * noch keine Parameter, wird der Parameter als ?name=wert angehängt, sonst
+     * als &name=wert.
+     *
      * @param url Zu verändernde URL
      * @param param Name des Parameters
      * @param value Wert des Parameters
@@ -59,13 +59,13 @@ public class WebUtils {
         } else {
             url += "&";
         }
-        
+
         try {
             url += URLEncoder.encode(param, "utf-8") + "=" + URLEncoder.encode(value, "utf-8");
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(WebUtils.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return url;
     }
 
@@ -76,7 +76,11 @@ public class WebUtils {
      * @return String für die Ausgabe
      */
     public static String formatDate(Date date) {
-        return DATE_FORMAT.format(date);
+        if (date != null) {
+            return DATE_FORMAT.format(date);
+        } else {
+            return "";
+        }
     }
 
     /**
@@ -86,7 +90,11 @@ public class WebUtils {
      * @return String für die Ausgabe
      */
     public static String formatTime(Time time) {
-        return TIME_FORMAT.format(time);
+        if (time != null) {
+            return TIME_FORMAT.format(time);
+        } else {
+            return "";
+        }
     }
 
     /**
@@ -121,7 +129,7 @@ public class WebUtils {
 
     /**
      * Formatiert eine Double-Zahl für die Ausgabe, z.B. 8,15
-     * 
+     *
      * @param d Zahl
      * @return String für die Ausgabe
      */
@@ -130,10 +138,10 @@ public class WebUtils {
         df.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.GERMANY));
         return df.format(d);
     }
-    
+
     /**
      * Formatiert eine Integer-Zahl für die Ausgabe, z.B. 2.450
-     * 
+     *
      * @param i Zahl
      * @return String für die Ausgabe
      */

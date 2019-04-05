@@ -8,7 +8,6 @@
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
 
-
 import dhbw.wwi.deadoralive.ejb.SteckbriefBean;
 import dhbw.wwi.deadoralive.jpa.Steckbrief;
 import dhbwka.wwi.vertsys.javaee.jtodo.common.web.WebUtils;
@@ -37,7 +36,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Seite zum Anlegen oder Bearbeiten einer Aufgabe.
  */
-@WebServlet(urlPatterns = "/app/tasks/task/*")
+@WebServlet(urlPatterns = "/app/steckbrief/steckbrief/*")
 public class SteckbriefEditServlet extends HttpServlet {
 
     @EJB
@@ -64,8 +63,13 @@ public class SteckbriefEditServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
         Steckbrief steckbrief = this.getRequestedSteckbrief(request);
-        request.setAttribute("edit", steckbrief.getId() != 0);
-                                
+
+        if (steckbrief == null) {
+            steckbrief = new Steckbrief();
+        }
+
+        request.setAttribute("edit", steckbrief.getId() != null);
+
         if (session.getAttribute("steckbrief_form") == null) {
             // Keine Formulardaten mit fehlerhaften Daten in der Session,
             // daher Formulardaten aus dem Datenbankobjekt übernehmen
@@ -74,7 +78,7 @@ public class SteckbriefEditServlet extends HttpServlet {
 
         // Anfrage an die JSP weiterleiten
         request.getRequestDispatcher("/WEB-INF/steckbrief/steckbrief_edit.jsp").forward(request, response);
-        
+
         session.removeAttribute("steckbrief_form");
     }
 
@@ -115,10 +119,10 @@ public class SteckbriefEditServlet extends HttpServlet {
 
         String steckbriefCategory = request.getParameter("steckbrief_category");
         String steckbriefDueDate = request.getParameter("steckbrief_due_date");
-    
         String steckbriefStatus = request.getParameter("steckbrief_status");
         String steckbriefName = request.getParameter("steckbrief_name");
-        String steckbriefPersonenBeschreibung = request.getParameter("task_personen_beschreibung");
+        String steckbriefKopfgeld = request.getParameter("steckbrief_kopfgeld");
+        String steckbriefPersonenBeschreibung = request.getParameter("steckbrief_personen_beschreibung");
 
         Steckbrief steckbrief = this.getRequestedSteckbrief(request);
 
@@ -138,7 +142,6 @@ public class SteckbriefEditServlet extends HttpServlet {
             errors.add("Das Datum muss dem Format dd.mm.yyyy entsprechen.");
         }
 
-      
         try {
             steckbrief.setStatus(TaskStatus.valueOf(steckbriefStatus));
         } catch (IllegalArgumentException ex) {
@@ -209,10 +212,10 @@ public class SteckbriefEditServlet extends HttpServlet {
         String steckbriefId = request.getPathInfo();
 
         if (steckbriefId == null) {
-            steckbriefId= "";
+            steckbriefId = "";
         }
 
-        steckbriefId= steckbriefId.substring(1);
+        steckbriefId = steckbriefId.substring(1);
 
         if (steckbriefId.endsWith("/")) {
             steckbriefId = steckbriefId.substring(0, steckbriefId.length() - 1);
@@ -254,7 +257,6 @@ public class SteckbriefEditServlet extends HttpServlet {
         values.put("steckbrief_due_date", new String[]{
             WebUtils.formatDate(steckbrief.getDueDate())
         });
-
 
         values.put("steckbrief_status", new String[]{
             steckbrief.getStatus().toString()

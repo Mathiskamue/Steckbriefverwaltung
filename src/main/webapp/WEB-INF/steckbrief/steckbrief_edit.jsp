@@ -85,20 +85,20 @@
                 </div>
 
                 <label for="steckbrief_name">
-                    Bezeichnung:
+                    Name:
                     <span class="required">*</span>
                 </label>
                 <div class="side-by-side">
                     <input type="text" name="steckbrief_name" value="${steckbrief_form.values["steckbrief_name"][0]}">
                 </div>
                 
-                <label for="steckbrief_name">
+                <label for="steckbrief_kopfgeld">
                     Kopfgeld:
                     <span class="required">*</span>
                 </label>
                 <div class="side-by-side">
                     <%--Variable ändern --%>
-                    <input type="text" name="steckbrief_name" value="${steckbrief_form.values["steckbrief_name"][0]}">
+                    <input type="text" name="steckbrief_kopfgeld" value="${steckbrief_form.values["steckbrief_kopfgeld"][0]}">
                 </div>
 
                 <label for="steckbrief_personen_beschreibung">
