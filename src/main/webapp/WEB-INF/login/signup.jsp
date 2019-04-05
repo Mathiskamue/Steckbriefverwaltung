@@ -66,14 +66,14 @@
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_vorname" value="${signup_vorname}">
+                        <input type="text" name="signup_vorname" value="${signup_form.values["signup_vorname"][0]}">
                     </div>
                     <label for="signup_nachname">
                         Nachname:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="text" name="signup_nachname" value="${signup_nachname}">
+                        <input type="text" name="signup_nachname" value="${signup_form.values["signup_nachname"][0]}">
                     </div>
 
                     <%-- Button zum Abschicken --%>

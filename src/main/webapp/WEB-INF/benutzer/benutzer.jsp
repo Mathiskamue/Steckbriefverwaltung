@@ -32,7 +32,7 @@
 
     <jsp:attribute name="content">
         <div class="container">
-            <form method="post" class="stacked">
+            <form  method="post" class="stacked">
                 <div class="column">
                     <%-- CSRF-Token --%>
                     <input type="hidden" name="csrf_token" value="${csrf_token}">
@@ -51,14 +51,22 @@
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="password" name="maintain_password1" value="${oldPasswords}">
+                        <input type="password" name="maintain_oldPassword" value="${oldPassword}">
                     </div>
-                    <label for="maintain_newPassword">
-                        Neues Passwort:
+                    <label for="maintain_newPassword1">
+                        Neues Passwort1:
                         <span class="required">*</span>
                     </label>
                     <div class="side-by-side">
-                        <input type="password" name="maintain_newPassword" value="${newPassword}">
+                        <input type="password" name="maintain_password1" value="${newPassword1}">
+                    </div>
+                    
+                    <label for="maintain_newPassword2">
+                     Neues Passwort2:
+                        <span class="required">*</span>
+                    </label>
+                    <div class="side-by-side">
+                        <input type="password" name="maintain_password2" value="${newPassword2}">
                     </div>
 
 
