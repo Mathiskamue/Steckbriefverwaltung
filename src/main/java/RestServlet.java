@@ -55,7 +55,7 @@ request.setCharacterEncoding("UTF-8");
 
                                 
         // Anfrage an die JSP weiterleiten
-        request.getRequestDispatcher("/WEB-INF/steckbrief_rest.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/steckbrief/steckbrief_rest.jsp").forward(request, response);
 
     }
 
@@ -77,7 +77,7 @@ request.setCharacterEncoding("UTF-8");
         String status = request.getParameter("status");
         
         
-        String url =  "/app/rest/Steckbrief/";
+        String url =  "/api/Steckbrief/";
         
        if("getStatus".equals(action)){
            url = url + "?query=" + status;

@@ -9,6 +9,7 @@
  */
 package dhbwka.wwi.vertsys.javaee.jtodo.tasks.ejb;
 
+import dhbw.wwi.deadoralive.ejb.SteckbriefBean;
 import dhbwka.wwi.vertsys.javaee.jtodo.common.web.WebUtils;
 import dhbwka.wwi.vertsys.javaee.jtodo.dashboard.ejb.DashboardContentProvider;
 import dhbwka.wwi.vertsys.javaee.jtodo.dashboard.ejb.DashboardSection;
@@ -22,14 +23,14 @@ import javax.ejb.Stateless;
 /**
  * EJB zur Definition der Dashboard-Kacheln für Aufgaben.
  */
-@Stateless(name = "tasks")
+@Stateless(name = "steckbrief")
 public class DashboardContent implements DashboardContentProvider {
 
     @EJB
     private CategoryBean categoryBean;
 
     @EJB
-    private TaskBean taskBean;
+    private SteckbriefBean steckbriefBean;
 
     /**
      * Vom Dashboard aufgerufenen Methode, um die anzuzeigenden Rubriken und
@@ -126,8 +127,8 @@ public class DashboardContent implements DashboardContentProvider {
      * @return
      */
     private DashboardTile createTile(Category category, TaskStatus status, String label, String cssClass, String icon) {
-        int amount = taskBean.search(null, category, status).size();
-        String href = "/app/tasks/list/";
+        int amount = steckbriefBean.search(null, category, status).size();
+        String href = "/app/steckbrief/list/";
 
         if (category != null) {
             href = WebUtils.addQueryParameter(href, "search_category", "" + category.getId());

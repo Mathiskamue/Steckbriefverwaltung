@@ -67,7 +67,7 @@
                     <span class="required">*</span>
                 </label>
                 <div class="side-by-side">
-                    <input type="text" name="steckbrief_due_date" value="${task_form.values["task_due_date"][0]}">
+                    <input type="text" name="steckbrief_due_date" value="${steckbrief_form.values["steckbrief_due_date"][0]}">
                 </div>
 
                 <label for="steckbrief_status">

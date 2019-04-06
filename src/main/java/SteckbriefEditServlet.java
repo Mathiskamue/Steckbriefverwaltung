@@ -16,6 +16,7 @@ import dhbwka.wwi.vertsys.javaee.jtodo.tasks.ejb.CategoryBean;
 import dhbwka.wwi.vertsys.javaee.jtodo.tasks.ejb.TaskBean;
 import dhbwka.wwi.vertsys.javaee.jtodo.common.ejb.UserBean;
 import dhbwka.wwi.vertsys.javaee.jtodo.common.ejb.ValidationBean;
+import dhbwka.wwi.vertsys.javaee.jtodo.common.jpa.User;
 import dhbwka.wwi.vertsys.javaee.jtodo.tasks.jpa.Task;
 import dhbwka.wwi.vertsys.javaee.jtodo.tasks.jpa.TaskStatus;
 import java.io.IOException;
@@ -141,6 +142,12 @@ public class SteckbriefEditServlet extends HttpServlet {
         } else {
             errors.add("Das Datum muss dem Format dd.mm.yyyy entsprechen.");
         }
+        
+        if (steckbriefKopfgeld != null) {
+            steckbrief.setKopfgeld(Integer.parseInt(steckbriefKopfgeld));
+        } else {
+            errors.add("Bitte geben Sie ein gütliges Kopfgeld ein.");
+        }
 
         try {
             steckbrief.setStatus(TaskStatus.valueOf(steckbriefStatus));
@@ -207,7 +214,8 @@ public class SteckbriefEditServlet extends HttpServlet {
     private Steckbrief getRequestedSteckbrief(HttpServletRequest request) {
         // Zunächst davon ausgehen, dass ein neuer Satz angelegt werden soll
         Steckbrief steckbrief = new Steckbrief();
-        steckbrief.setOwner(this.userBean.getCurrentUser());
+        User user = this.userBean.getCurrentUser();
+        steckbrief.setOwner(user);
         steckbrief.setDueDate(new Date(System.currentTimeMillis()));
 
         // ID aus der URL herausschneiden
@@ -240,7 +248,7 @@ public class SteckbriefEditServlet extends HttpServlet {
      * Formular aus der Entity oder aus einer vorherigen Formulareingabe
      * stammen.
      *
-     * @param task Die zu bearbeitende Aufgabe
+     * @param steckbrief Die zu bearbeitende Aufgabe
      * @return Neues, gefülltes FormValues-Objekt
      */
     private FormValues createSteckbriefForm(Steckbrief steckbrief) {
@@ -262,6 +270,9 @@ public class SteckbriefEditServlet extends HttpServlet {
 
         values.put("steckbrief_status", new String[]{
             steckbrief.getStatus().toString()
+        });
+        values.put("steckbrief_kopfgeld", new String[]{
+           "" + steckbrief.getKopfgeld()
         });
 
         values.put("steckbrief_name", new String[]{

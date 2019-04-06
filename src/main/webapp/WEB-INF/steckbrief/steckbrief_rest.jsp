@@ -37,7 +37,7 @@
                     GET
                 </td>
                 <td>
-                    <a href="Steckbrief/">Steckbrief/</a>
+                    <a href="http://localhost:8080/DeadOrAlive/api/Steckbrief/">Steckbrief/</a>
                 </td>
             </tr>
         </table>
@@ -46,14 +46,15 @@
             
              <tr>
                 <td>
-                    Datensatz mit Id 100 auslesen
+                    Datensatz mit Id 99 auslesen
                 </td>
                 <td class="verb">
                     GET
                 </td>
                 <td>
-                    <a href="Steckbrief/100">Steckbrief/100</a>
+                    <a href="http://localhost:8080/DeadOrAlive/api/Steckbrief/99">Steckbrief/99</a>
                 </td>
+                
             </tr>
             <br>
              <tr>
@@ -73,13 +74,13 @@
         <table class="bb">
              <tr>
                 <td>
-                    Datensatz Terminname/bezeichnung mit Inhalt a auslesen
+                    Datensatz Terminname/bezeichnung mit Inhalt m auslesen
                 </td>
                 <td class="verb">
                     GET
                 </td>
                 <td>
-                    <a href="Steckbrief/?query=a">Steckbrief/?query=a</a>
+                    <a href="http://localhost:8080/DeadOrAlive/api/Steckbrief/?query=m">Steckbrief/?query=m</a>
                 </td>
             </tr>
                <br>

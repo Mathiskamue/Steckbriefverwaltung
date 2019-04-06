@@ -32,7 +32,7 @@
         </div>
 
         <div class="menuitem">
-            <a href="<c:url value="/app/steckbrief/categories/"/>">Kategorien bearbeiten</a>
+            <a href="<c:url value="/app/tasks/categories/"/>">Kategorien bearbeiten</a>
         </div>
     </jsp:attribute>
 
@@ -89,7 +89,7 @@
                     <c:forEach items="${steckbrief}" var="steckbrief">
                         <tr>
                             <td>
-                                <a href="<c:url value="/app/tasks/task/${steckbrief.id}/"/>">
+                                <a href="<c:url value="/app/steckbrief/steckbrief/${steckbrief.id}/"/>">
                                     <c:out value="${steckbrief.name}"/>
                                 </a>
                             </td>

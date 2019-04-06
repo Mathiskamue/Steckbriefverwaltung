@@ -20,7 +20,7 @@
                 Aufgabe bearbeiten
             </c:when>
             <c:otherwise>
-                Aufgabe anlegen
+                Aufgabe anlegen 
             </c:otherwise>
         </c:choose>
     </jsp:attribute>

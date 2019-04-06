@@ -42,8 +42,7 @@ public class Category implements Serializable {
     @Size(min = 3, max = 30, message = "Der Name muss zwischen drei und 30 Zeichen lang sein.")
     private String name;
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    List<Task> tasks = new ArrayList<>();
+    
     
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     List<Steckbrief> steckbrief = new ArrayList<>();
@@ -74,12 +73,12 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    public List<Task> getTasks() {
-        return tasks;
+    public List<Steckbrief> getSteckbrief() {
+        return steckbrief;
     }
 
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
+    public void setSteckbrief(List<Steckbrief> steckbrief) {
+        this.steckbrief = steckbrief;
     }
     //</editor-fold>
 

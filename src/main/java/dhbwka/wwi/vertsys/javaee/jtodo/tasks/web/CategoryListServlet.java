@@ -9,6 +9,8 @@
  */
 package dhbwka.wwi.vertsys.javaee.jtodo.tasks.web;
 
+import dhbw.wwi.deadoralive.ejb.SteckbriefBean;
+import dhbw.wwi.deadoralive.jpa.Steckbrief;
 import dhbwka.wwi.vertsys.javaee.jtodo.common.web.FormValues;
 import dhbwka.wwi.vertsys.javaee.jtodo.tasks.ejb.CategoryBean;
 import dhbwka.wwi.vertsys.javaee.jtodo.tasks.ejb.TaskBean;
@@ -38,7 +40,7 @@ public class CategoryListServlet extends HttpServlet {
     CategoryBean categoryBean;
 
     @EJB
-    TaskBean taskBean;
+    SteckbriefBean steckbriefBean;
 
     @EJB
     ValidationBean validationBean;
@@ -149,12 +151,12 @@ public class CategoryListServlet extends HttpServlet {
             }
 
             // Bei allen betroffenen Aufgaben, den Bezug zur Kategorie aufheben
-            List<Task> tasks = category.getTasks();
+            List<Steckbrief> steckbrief = category.getSteckbrief();
 
-            if (tasks != null) {
-                tasks.forEach((Task task) -> {
+            if (steckbrief != null) {
+                steckbrief.forEach((Steckbrief task) -> {
                     task.setCategory(null);
-                    this.taskBean.update(task);
+                    this.steckbriefBean.update(task);
                 });
             }
 
