@@ -1,4 +1,4 @@
-Beispielanwendung "jTodo"
+Beispielanwendung "DeadOrAlive"
 =========================
 
 Kurzbeschreibung
