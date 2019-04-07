@@ -32,8 +32,12 @@ public class SteckbriefBean extends EntityBean<Steckbrief, Long> {
         super(Steckbrief.class);
     }
    
- 
-   
+        @Override
+        public List<Steckbrief> findAll() {
+        return em.createQuery("SELECT s.name, s.category, s.kopfgeld, s.personenBeschreibung, s.status FROM Steckbrief s"
+                            + "    WHERE s.name       LIKE :query").getResultList();
+        
+    }
     
      public List<Steckbrief> findByQuery(String query) {
         if (query == null || query.trim().isEmpty()) {
