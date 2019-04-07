@@ -15,7 +15,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="head">
-        <!-- <link rel="stylesheet" href="<c:url value="/css/rest.css"/>" /> -->
+        <link rel="stylesheet" href="<c:url value="/css/rest.css"/>" />
     </jsp:attribute>
 
     <jsp:attribute name="menu">

@@ -56,8 +56,8 @@ public class SteckbriefResource {
     
     @GET
     @Path("{id}")
-    public Steckbrief getSteckbrief(@PathParam("id")long id){
-        return this.steckbriefBean.findById(id);
+    public List<Steckbrief> getSteckbrief(@PathParam("id")long id){
+        return this.steckbriefBean.findeMitId(id);
     }
    
     @PUT

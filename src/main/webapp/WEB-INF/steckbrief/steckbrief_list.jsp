@@ -28,7 +28,7 @@
         </div>
 
         <div class="menuitem">
-            <a href="<c:url value="/app/steckbrief/steckbrief/new/"/>">Aufgabe anlegen</a>
+            <a href="<c:url value="/app/steckbrief/steckbrief/new/"/>">Steckbrief anlegen</a>
         </div>
 
         <div class="menuitem">

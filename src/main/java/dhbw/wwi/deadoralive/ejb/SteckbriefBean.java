@@ -34,8 +34,20 @@ public class SteckbriefBean extends EntityBean<Steckbrief, Long> {
    
         @Override
         public List<Steckbrief> findAll() {
-        return em.createQuery("SELECT s.name, s.category, s.kopfgeld, s.personenBeschreibung, s.status FROM Steckbrief s").getResultList();
+        return em.createQuery("SELECT s.name, s.category, s.kopfgeld, s.personenBeschreibung, s.status, s.id FROM Steckbrief s").getResultList();
         
+        
+    }
+
+    public List<Steckbrief> findeMitId(Long id){
+
+        
+         List<Steckbrief> steckbriefe = em.createQuery("SELECT s.name, s.category, s.kopfgeld, s.personenBeschreibung, s.status, s.id FROM Steckbrief s"
+                            + "    WHERE s.id= :id")
+                .setParameter("id",id)
+                .getResultList();
+         
+         return steckbriefe;
     }
     
      public List<Steckbrief> findByQuery(String query) {
@@ -45,7 +57,7 @@ public class SteckbriefBean extends EntityBean<Steckbrief, Long> {
         
         query = "%" + query + "%";
 
-        return em.createQuery("SELECT s.name, s.category, s.kopfgeld, s.personenBeschreibung, s.status FROM Steckbrief s"
+        return em.createQuery("SELECT s.name, s.category, s.kopfgeld, s.personenBeschreibung, s.status, s.id FROM Steckbrief s"
                             + "    WHERE s.name       LIKE :query")
                             
                 .setParameter("query", query)
